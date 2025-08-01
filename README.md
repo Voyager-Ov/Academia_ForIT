@@ -113,16 +113,6 @@ Front-Back-Next/
 ├── package.json                     # 16 dependencias + scripts
 └── README.md                        # Esta documentación
 ```
-
-**📊 Métricas del código:**
-- **16 archivos TypeScript/React** (.tsx + .ts)
-- **1,200+ líneas de código** aproximadamente
-- **367 líneas de CSS** con animaciones avanzadas
-- **26 interfaces TypeScript** definidas
-- **4 API endpoints RESTful** implementados
-
----
-
 ## 🚀 **Instalación y Ejecución**
 
 ### **Prerrequisitos**
