@@ -1,0 +1,419 @@
+@import "tailwindcss";
+
+/* === CONFIGURACIÓN DE COLORES DARK THEME === */
+:root {
+  /* AZUL MUY OSCURO Y PROFUNDO - Color base del fondo */
+  --background: hsl(240, 10%, 3.9%);
+  
+  /* CASI BLANCO CON TINTE AZULADO - Texto principal */
+  --foreground: hsl(210, 40%, 98%);
+  
+  /* CIAN-AZUL INTENSO - Color de acento principal */
+  --primary: hsl(202, 100%, 15%);
+  
+  /* GRIS AZULADO MEDIO - Texto secundario */
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  
+  /* AZUL OSCURO SUAVE - Fondos de componentes */
+  --card: hsl(200, 100%, 10%);
+  
+  /* AZUL GRISÁCEO - Bordes usando color primario para consistencia */
+  --border: hsl(202, 100%, 15%);
+  
+  /* AZUL OSCURO PARA INPUTS - Campos de entrada */
+  --input: hsl(240, 5.9%, 10%);
+  
+  /* AZUL MEDIO PARA HOVER - Estados de interacción */
+  --accent: hsl(240, 4.8%, 15%);
+  
+  /* AZUL MEDIO CLARO - Fondos secundarios */
+  --secondary: hsl(240, 4.8%, 15%);
+  
+  /* TEXTO SOBRE SECUNDARIO - Contraste en elementos secundarios */
+  --secondary-foreground: hsl(210, 40%, 98%);
+}
+
+/* === TIPOGRAFÍA ROBOTO === */
+* {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === BACKGROUND ANIMADO CON ESFERAS FLOTANTES === */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, hsla(202, 100%, 15%, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, hsla(180, 100%, 15%, 0.25) 0%, transparent 45%);
+  z-index: -1;
+  animation: floatingLights 12s ease-in-out infinite alternate;
+  filter: blur(40px);
+}
+
+@keyframes floatingLights {
+  0% {
+    background: 
+      radial-gradient(circle at 25% 25%, hsla(202, 100%, 15%, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, hsla(180, 100%, 15%, 0.25) 0%, transparent 45%);
+  }
+  25% {
+    background: 
+      radial-gradient(circle at 70% 30%, hsla(202, 100%, 15%, 0.25) 0%, transparent 45%),
+      radial-gradient(circle at 30% 80%, hsla(180, 100%, 15%, 0.3) 0%, transparent 40%);
+  }
+  50% {
+    background: 
+      radial-gradient(circle at 80% 70%, hsla(202, 100%, 15%, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 20% 20%, hsla(180, 100%, 15%, 0.25) 0%, transparent 45%);
+  }
+  75% {
+    background: 
+      radial-gradient(circle at 30% 70%, hsla(202, 100%, 15%, 0.25) 0%, transparent 45%),
+      radial-gradient(circle at 70% 25%, hsla(180, 100%, 15%, 0.3) 0%, transparent 40%);
+  }
+  100% {
+    background: 
+      radial-gradient(circle at 25% 25%, hsla(202, 100%, 15%, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, hsla(180, 100%, 15%, 0.25) 0%, transparent 45%);
+  }
+}
+
+/* === COMPONENTES PRINCIPALES === */
+
+/* Contenedor principal */
+.main-container {
+  background: rgba(var(--card), 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Tarjetas con efecto de cristal */
+.glass-card {
+  background: rgba(var(--card), 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(var(--card), 0.9);
+  border-color: var(--primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* === NAVEGACIÓN Y SIDEBAR === */
+.nav-item {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.nav-item:hover {
+  background: var(--accent);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* === TARJETAS DE TAREAS === */
+.task-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  background: var(--accent);
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.task-title {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.task-description {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+/* === BOTONES === */
+.btn {
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: hsl(202, 100%, 18%);
+  border-color: hsl(202, 100%, 18%);
+  box-shadow: 0 4px 12px hsla(202, 100%, 15%, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: hsl(202, 100%, 18%);
+  border-color: hsl(202, 100%, 18%);
+  box-shadow: 0 4px 12px hsla(202, 100%, 15%, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  border-color: var(--primary);
+}
+
+.btn-danger {
+  background: hsl(0, 62%, 30%);
+  border: 1px solid hsl(0, 62%, 35%);
+}
+
+.btn-danger:hover {
+  background: hsl(0, 62%, 35%);
+  border-color: hsl(0, 62%, 40%);
+}
+
+/* === FORMULARIOS === */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  color: var(--foreground);
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  background: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px hsla(202, 100%, 15%, 0.2);
+  outline: none;
+}
+
+.form-textarea {
+  background: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  min-height: 100px;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px hsla(202, 100%, 15%, 0.2);
+  outline: none;
+}
+
+/* === ESTADOS DE TAREAS === */
+.task-pending {
+  border-left: 4px solid hsl(45, 100%, 51%);
+}
+
+.task-in-progress {
+  border-left: 4px solid hsl(202, 100%, 50%);
+}
+
+.task-completed {
+  border-left: 4px solid hsl(142, 76%, 36%);
+  opacity: 0.5;
+  filter: grayscale(20%);
+}
+
+.task-completed .task-title {
+  text-decoration: line-through;
+  color: var(--muted-foreground);
+}
+
+/* === UTILIDADES === */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.rounded {
+  border-radius: 0.5rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .main-container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .glass-card {
+    padding: 1rem;
+  }
+
+  /* Sidebar responsive */
+  aside {
+    width: 100%;
+    position: relative !important;
+    height: auto !important;
+  }
+
+  main {
+    margin-left: 0 !important;
+  }
+}
+
+/* === SIDEBAR ESPECÍFICO === */
+.sidebar-nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.sidebar-nav-item:hover::before {
+  left: 100%;
+}
+
+.sidebar-stats-card {
+  background: linear-gradient(135deg, var(--primary), hsl(202, 100%, 18%));
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-stats-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* === ANIMACIONES GLOBALES === */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
