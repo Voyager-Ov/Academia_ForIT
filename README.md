@@ -17,7 +17,7 @@ Esta aplicación representa mi **mejor trabajo** para el challenge de ingreso, d
 
 ### 🏆 **¿Por qué este proyecto destaca?**
 
-- **🚀 Tecnología de vanguardia**: Next.js 15 con App Router y React 19
+- **🚀 Tecnología**: Next.js 15 con App Router y React 19
 - **💪 TypeScript completo**: Tipado fuerte en toda la aplicación
 - **🎨 Diseño excepcional**: Tema oscuro con animaciones y efectos visuales
 - **🏗️ Arquitectura sólida**: Componentes reutilizables y código limpio
@@ -358,10 +358,3 @@ curl -X PUT http://localhost:3000/api/tasks/123 \
 > **💡 Este proyecto (Front-Back-Next) representa mi mejor trabajo técnico y es el ÚNICO que me gustaría que evalúen para mi ingreso a Academia ForIT. Los otros proyectos son solo ejercicios de aprendizaje. Este demuestra mi pasión por el desarrollo, atención al detalle y capacidad para crear aplicaciones modernas y profesionales con dedicación completa.**
 
 ---
-
-[![Made with Next.js](https://img.shields.io/badge/Made%20with-Next.js-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![Built with TypeScript](https://img.shields.io/badge/Built%20with-TypeScript-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-
-**🚀 [Ver Demo en Vivo](http://localhost:3000) | 📧 [Contacto](mailto:tu-email@ejemplo.com) | 💼 [Portfolio](https://tu-portfolio.com)**
-
